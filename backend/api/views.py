@@ -51,7 +51,7 @@ class PasswordResetEmailVerifyAPIView(generics.RetrieveAPIView):
     serializer_class = api_serializer.UserSerializer
 
     def get_object(self):
-        email = self.kwargs['email'] # api/v1/password-email-verify/desphixs@gmail.com/
+        email = self.kwargs['email'] 
 
         user = User.objects.filter(email=email).first()
 

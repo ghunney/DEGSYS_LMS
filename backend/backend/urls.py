@@ -25,11 +25,11 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Desphixs LMS Backend APIs",
+      title="AKG LMS Backend APIs",
       default_version='v1',
-      description="This is the API documentation for Desphixs LMS project APIs",
+      description="This is the API documentation for AKG Tech's LMS project APIs",
       terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="destiny@gmail.com"),
+      contact=openapi.Contact(email="info@akg-tech.org"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,
