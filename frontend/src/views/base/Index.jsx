@@ -217,8 +217,7 @@ function Index() {
               <div className="mb-6">
                 <h2 className="mb-1 h1">🔥Most Popular Courses</h2>
                 <p>
-                  These are the most popular courses among Geeks Courses
-                  learners worldwide in year 2022
+                  These are the most popular courses Courses
                 </p>
               </div>
             </div>

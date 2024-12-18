@@ -18,6 +18,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.exceptions import NotFound
 
 
 import random
@@ -157,6 +158,8 @@ class CourseDetailAPIView(generics.RetrieveAPIView):
         slug = self.kwargs['slug']
         course = api_models.Course.objects.get(slug=slug, platform_status="Published", teacher_course_status="Published")
         return course
+        
+
     
 class CartAPIView(generics.CreateAPIView):
     queryset = api_models.Cart.objects.all()
@@ -1155,13 +1158,22 @@ class CourseUpdateAPIView(generics.RetrieveUpdateAPIView):
         serializer.save(course=course_instance) 
 
 
-class CourseDetailAPIView(generics.RetrieveDestroyAPIView):
+# class CourseDetailAPIView(generics.RetrieveDestroyAPIView):
+#     serializer_class = api_serializer.CourseSerializer
+#     permission_classes = [AllowAny]
+
+#     def get_object(self):
+#         course_id = self.kwargs['course_id']
+#         return api_models.Course.objects.get(course_id=course_id)
+
+class CourseDetailAPIView(generics.RetrieveAPIView):
     serializer_class = api_serializer.CourseSerializer
     permission_classes = [AllowAny]
+    queryset = api_models.Course.objects.filter(platform_status="Published", teacher_course_status="Published")
 
     def get_object(self):
-        course_id = self.kwargs['course_id']
-        return api_models.Course.objects.get(course_id=course_id)
+        slug = self.kwargs['slug']
+        return api_models.Course.objects.get(slug=slug)
 
 
 class CourseVariantDeleteAPIView(generics.DestroyAPIView):
