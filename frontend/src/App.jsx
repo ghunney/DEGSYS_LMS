@@ -70,9 +70,7 @@ function App() {
               <Route path="/login/" element={<Login />} />
               <Route path="/logout/" element={<Logout />} />
               <Route path="/forgot-password/" element={<ForgotPassword />} />
-              <Route
-                path="/create-new-password/"
-                element={<CreateNewPassword />}
+              <Route path="/create-new-password/" element={<CreateNewPassword />}
               />
 
               {/* Base Routes */}

@@ -30,7 +30,7 @@ function CourseDetail() {
       .get(`course/course-detail/${param.slug}/`)
       .then((res) => {
         setCourse(res.data);
-        setIsLoading();
+        setIsLoading(false);
       });
   };
 
